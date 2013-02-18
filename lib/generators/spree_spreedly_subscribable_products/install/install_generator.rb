@@ -2,6 +2,8 @@ module SpreeSpreedlySubscribableProducts
   module Generators
     class InstallGenerator < Rails::Generators::Base
 
+      source_root File.expand_path('../templates', __FILE__)
+      
       def add_javascripts
         append_file 'app/assets/javascripts/store/all.js', "//= require store/spree_spreedly_subscribable_products\n"
         append_file 'app/assets/javascripts/admin/all.js', "//= require admin/spree_spreedly_subscribable_products\n"
@@ -23,6 +25,10 @@ module SpreeSpreedlySubscribableProducts
          else
            puts 'Skipping rake db:migrate, don\'t forget to run it!'
          end
+      end
+
+      def add_initializer
+        copy_file "initializer.rb", "config/initializers/spree_spreedly_subscribable_products.rb"
       end
     end
   end
