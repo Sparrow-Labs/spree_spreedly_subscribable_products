@@ -1,0 +1,7 @@
+<label for="spreedly_feature_level">Feature Level</label>
+
+<select class="select" id="spreedly_feature_level_id" name="product[spreedly_feature_level_id]" style="display: none;">
+  <% feature_levels.each do |feature_level| %>
+    <option value="<%= feature_level %>"><%= feature_level %></option>
+  <% end %>
+</select>

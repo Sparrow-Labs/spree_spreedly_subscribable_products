@@ -2,9 +2,18 @@
 $ ->
   $("#product_subscribable").click ->
     $('#subscription_plans').html ' '
-    
+    $("#spreedly_feature_level").html ' '
+
     if $(this).is ':checked'
-      product_name = $('#product_name').val()
-      $.get "/spreedly_subscription_plan/index?product_name=#{product_name}", (data) ->
-        $('#subscription_plans').html data
-        $("#product_subscription_plan_id").select2()
+      $.get '/spreedly_subscription_plan/feature_levels', (data) ->
+        $("#spreedly_feature_level").addClass("field").html data
+        $("#spreedly_feature_level_id").on "change", ->
+          console.log "Fuck off!"
+          display_subscription_plans()
+        $("#spreedly_feature_level_id").select2()
+
+display_subscription_plans = () ->
+  feature_level = $('#spreedly_feature_level_id').val()
+  $.get "/spreedly_subscription_plan/index?feature_level=#{feature_level}", (data) ->
+    $('#subscription_plans').addClass("field").html data
+    $("#product_subscription_plan_id").select2()

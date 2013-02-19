@@ -3,17 +3,35 @@ require 'rspreedly'
 class SpreedlySubscriptionPlanController < ApplicationController
   def index
     render partial: 'subscription_plan/partials/spreedly_subscription_plans', locals: {
-      subscription_plans: plans_for_product(params[:product_name])
+      subscription_plans: plans_for_feature_level(params[:feature_level])
     }
   end
 
-  private
+  def feature_levels
+    render partial: 'subscription_plan/partials/spreedly_feature_levels', locals: {
+      feature_levels: uniq_spreedly_feature_levels
+    }
+  end
 
-  def plans_for_product(product_name)
-    subscription_plans = RSpreedly::SubscriptionPlan.find :all
-
+private
+    
+  def plans_for_feature_level(feature_level)
     subscription_plans.find_all do |plan|
-      plan.feature_level == product_name.downcase
+      plan.feature_level == feature_level.downcase
     end
+  end
+
+  def uniq_spreedly_feature_levels
+    levels = []
+
+    subscription_plans.each do |plan|
+      levels << plan.feature_level
+    end
+
+    levels.uniq
+  end
+
+  def subscription_plans
+    RSpreedly::SubscriptionPlan.find :all    
   end
 end
