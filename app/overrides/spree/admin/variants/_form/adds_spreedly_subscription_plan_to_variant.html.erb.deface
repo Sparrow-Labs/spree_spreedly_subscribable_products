@@ -1,2 +1,2 @@
 <!-- insert_before "[data-hook=price]" -->
-<div id="spreedly_subscription_plan"></div>
+<div id="spreedly_subscription_plan" data-product_subscribable="<%= @product.subscribable %>"></div>
