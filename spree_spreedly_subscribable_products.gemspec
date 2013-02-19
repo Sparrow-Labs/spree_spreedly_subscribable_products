@@ -3,9 +3,9 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_spreedly_subscribable_products'
   s.version     = '1.3.2'
-  s.summary     = 'TODO: Add gem summary here'
-  s.description = 'TODO: Add (optional) gem description here'
-  s.required_ruby_version = '>= 1.8.7'
+  s.summary     = 'Adds spreedly subscribable products in spree'
+  s.description = 'Introduces subscribable products and variants in spree, whose subscriptions are handled through spreedly.'
+  s.required_ruby_version = '>= 1.9.3'
 
   # s.author    = 'You'
   # s.email     = 'you@example.com'

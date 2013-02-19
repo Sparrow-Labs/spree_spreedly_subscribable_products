@@ -1,6 +1,8 @@
 module SpreeSpreedlySubscribableProducts
   class Engine < Rails::Engine
     require 'spree/core'
+    require 'coffee-rails'
+    require 'sass-rails'
     isolate_namespace Spree
     engine_name 'spree_spreedly_subscribable_products'
 

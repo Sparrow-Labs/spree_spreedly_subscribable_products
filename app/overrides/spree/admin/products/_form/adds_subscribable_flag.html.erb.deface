@@ -1,0 +1,7 @@
+<!-- insert_bottom "[data-hook=admin_product_form_left]" -->
+<%= f.field_container :subscribable, :class => ['checkbox'] do %>
+  <label>
+    <%= f.check_box :subscribable %>
+    <%= t(:subscribable) %>
+  </label>
+<% end %>
