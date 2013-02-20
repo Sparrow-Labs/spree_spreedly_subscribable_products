@@ -5,3 +5,7 @@
     <%= t(:subscribable) %>
   </label>
 <% end %>
+
+<div id="spreedly_feature_level_field"></div>
+
+<div id="spreedly_subscription_plan"></div>
