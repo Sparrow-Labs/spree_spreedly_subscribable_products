@@ -2,7 +2,7 @@
 
 displaySubscriptionPlans = (featureLevel) ->
   productId = $("#product_spreedly_feature_level").data 'product_id'
-  loadSubscriptionPlansForFeatureLevel productId, featureLevel, (data) ->
+  loadSubscriptionPlansForFeatureLevel productId, featureLevel, 'product', (data) ->
     $("#product_spreedly_subscription_plan").addClass("field").html data
     $("#product_subscription_plan_id").select2()
 

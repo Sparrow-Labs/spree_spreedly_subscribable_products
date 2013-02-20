@@ -2,8 +2,11 @@ require 'rspreedly'
 
 class SpreedlySubscriptionPlanController < ApplicationController
   def index
+    model_name = params[:model_name].capitalize
+
     render partial: 'subscription_plan/partials/spreedly_subscription_plans', locals: {
-      product: Spree::Product.find(params[:product_id]),
+      model_name: params[:model_name],
+      clazz: "Spree::#{model_name}".constantize.find(params[:model_id]),
       subscription_plans: plans_for_feature_level(params[:feature_level])
     }
   end

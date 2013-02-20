@@ -1,6 +1,7 @@
-<label for="product_subscription_plan">Subscription Plan</label>
-<select class="select" id="product_subscription_plan_id" name="product[subscription_plan_id]" style="display: none;">
+<label for="<%= model_name %>_subscription_plan">Subscription Plan</label>
+<select class="select" id="<%= model_name %>_subscription_plan_id" name="<%= model_name %>[subscription_plan_id]" style="display: none;">
   <% subscription_plans.each do |plan| %>
-    <option value="<%= plan.id %>" selected="<%= plan.name if plan.id == product.subscription_plan_id %>"><%= plan.name %></option>
+    <% selected_option = plan.id == clazz.subscription_plan_id ? "selected=#{plan.id}" : '' %>
+    <option value="<%= plan.id %>" <%= "#{selected_option}" %>><%= plan.name %></option>
   <% end %>
 </select>

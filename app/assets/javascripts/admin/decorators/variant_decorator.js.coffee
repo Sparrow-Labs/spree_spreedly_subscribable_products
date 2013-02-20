@@ -5,11 +5,11 @@ $ ->
 
   if planElement && planElement.data 'product_subscribable'
     featureLevel = planElement.data 'product_spreedly_feature_level'
-    productId = planElement.data 'product_id'
+    modelId = planElement.data 'variant_id'
 
-    loadSubscriptionPlansForFeatureLevel productId, featureLevel, (data) ->
+    loadSubscriptionPlansForFeatureLevel modelId, featureLevel, 'variant', (data) ->
       planElement.html data
       planElement.addClass 'field'
-      $("#product_subscription_plan_id").select2()
-      $("#product_subscription_plan_id").change ->
-        console.log 'plan has changed!'
+      $("#variant_subscription_plan_id").change ->
+        console.log "plan has changed to #{$(this).val()}!"
+      $("#variant_subscription_plan_id").select2()

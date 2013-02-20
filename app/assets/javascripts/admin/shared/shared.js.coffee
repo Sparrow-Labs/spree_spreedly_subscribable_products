@@ -2,6 +2,6 @@
   $.get "/spreedly_subscription_plan/feature_levels?product_id=#{productId}", (data) ->
     completionHandler data
 
-@loadSubscriptionPlansForFeatureLevel = (productId, featureLevel, completionHandler) ->
-  $.get "/spreedly_subscription_plan/index?product_id=#{productId}&feature_level=#{featureLevel}", (data) ->
+@loadSubscriptionPlansForFeatureLevel = (modelId, featureLevel, modelName, completionHandler) ->
+  $.get "/spreedly_subscription_plan/index?model_id=#{modelId}&feature_level=#{featureLevel}&model_name=#{modelName}", (data) ->
     completionHandler data
