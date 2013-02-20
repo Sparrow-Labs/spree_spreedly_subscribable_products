@@ -1,13 +1,34 @@
 #= require ../shared/shared
 
+displaySubscriptionPlans = (featureLevel) ->
+  productId = $("#product_spreedly_feature_level").data 'product_id'
+  loadSubscriptionPlansForFeatureLevel productId, featureLevel, (data) ->
+    $("#product_spreedly_subscription_plan").addClass("field").html data
+    $("#product_subscription_plan_id").select2()
+
+resetProductSubscriptionOptions = ->
+  $("#product_spreedly_feature_level").html ''
+  $("#product_spreedly_subscription_plan").html ''
+
+loadProductSubscriptionOptions = () ->
+  productId = $("#product_spreedly_feature_level").data 'product_id'
+  loadFeatureLevels productId, (data) ->
+    $("#product_spreedly_feature_level").addClass("field").html data
+    featureLevelSelect = $("#spreedly_feature_level")
+    featureLevelSelect.select2()
+    featureLevel = featureLevelSelect.val()
+    displaySubscriptionPlans featureLevel
+
+    $("#spreedly_feature_level").change ->
+      featureLevel = $(this).val()
+      displaySubscriptionPlans featureLevel
+
 $ ->
-  $("#product_subscribable").click ->
-    planElement = $('#spreedly_subscription_plan')
-    featureLevelElement = $("#spreedly_feature_level_field")
+  if $("#product_subscribable").is ':checked'
+    loadProductSubscriptionOptions()
 
-    planElement.html ''
-    featureLevelElement.html ''
-
+  $("#product_subscribable").change ->
     if $(this).is ':checked'
-      $.get '/spreedly_subscription_plan/feature_levels', (data) ->
-        displayFeatureLevels data
+      loadProductSubscriptionOptions()
+    else
+      resetProductSubscriptionOptions()

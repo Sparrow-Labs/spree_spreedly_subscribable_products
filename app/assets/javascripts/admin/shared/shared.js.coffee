@@ -1,11 +1,7 @@
-@displayFeatureLevels = (data) ->
-  $("#spreedly_feature_level_field").addClass("field").html data
-  $("#spreedly_feature_level").change ->
-    featureLevel = $(this).val()
-    displaySubscriptionPlans featureLevel
-  $("#spreedly_feature_level").select2()
+@loadFeatureLevels = (productId, completionHandler) ->
+  $.get "/spreedly_subscription_plan/feature_levels?product_id=#{productId}", (data) ->
+    completionHandler data
 
-@displaySubscriptionPlans = (featureLevel) ->
-  $.get "/spreedly_subscription_plan/index?feature_level=#{featureLevel}", (data) ->
-    $('#spreedly_subscription_plan').addClass("field").html data
-    $("#product_subscription_plan_id").select2()
+@loadSubscriptionPlansForFeatureLevel = (productId, featureLevel, completionHandler) ->
+  $.get "/spreedly_subscription_plan/index?product_id=#{productId}&feature_level=#{featureLevel}", (data) ->
+    completionHandler data

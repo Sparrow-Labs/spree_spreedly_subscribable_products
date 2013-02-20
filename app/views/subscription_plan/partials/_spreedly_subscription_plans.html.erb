@@ -1,7 +1,6 @@
 <label for="product_subscription_plan">Subscription Plan</label>
-
 <select class="select" id="product_subscription_plan_id" name="product[subscription_plan_id]" style="display: none;">
   <% subscription_plans.each do |plan| %>
-    <option value="<%= plan.id %>" selected=""><%= plan.name %></option>
+    <option value="<%= plan.id %>" selected="<%= plan.name if plan.id == product.subscription_plan_id %>"><%= plan.name %></option>
   <% end %>
 </select>

@@ -6,6 +6,8 @@
   </label>
 <% end %>
 
-<div id="spreedly_feature_level_field"></div>
+<div id="product_spreedly_feature_level" data-product_id="<%= @product.id %>">
+</div>
 
-<div id="spreedly_subscription_plan"></div>
+<div id="product_spreedly_subscription_plan">
+</div>

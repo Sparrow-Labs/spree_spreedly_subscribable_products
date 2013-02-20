@@ -1,7 +1,6 @@
 <label for="spreedly_feature_level">Feature Level</label>
-
 <select class="select" id="spreedly_feature_level" name="product[spreedly_feature_level]" style="display: none;">
   <% feature_levels.each do |feature_level| %>
-    <option value="<%= feature_level %>"><%= feature_level %></option>
+    <option value="<%= feature_level %>" selected="<%= feature_level if product.spreedly_feature_level == feature_level %>"><%= feature_level %></option>
   <% end %>
 </select>
