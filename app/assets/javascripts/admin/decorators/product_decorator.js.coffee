@@ -10,4 +10,4 @@ $ ->
 
     if $(this).is ':checked'
       $.get '/spreedly_subscription_plan/feature_levels', (data) ->
-        display_feature_levels data
+        displayFeatureLevels data
