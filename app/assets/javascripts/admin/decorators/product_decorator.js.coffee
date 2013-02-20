@@ -1,7 +1,7 @@
 #= require ../shared/shared
 
 $ ->
-  $("#product_subscribable").click ->
+  $("#product_subscribable").change ->
     planElement = $('#spreedly_subscription_plan')
     featureLevelElement = $("#spreedly_feature_level_field")
 
