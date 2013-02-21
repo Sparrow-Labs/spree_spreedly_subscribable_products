@@ -12,9 +12,7 @@ class SpreedlySubscriptionPlanController < ApplicationController
   end
 
   def show
-    plan = subscription_plan_with_id(params[:plan_id])
-    logger.debug plan
-    render json: plan
+    render json: subscription_plan_with_id(params[:plan_id])
   end
 
   def feature_levels
