@@ -1,5 +1,11 @@
 #= require ../shared/shared
 
+updateVariantPrice = (subscriptionPlanId) ->
+  loadSubscriptionPlanWithId subscriptionPlanId, (data) ->
+    variantPriceInput = $("#variant_price")
+    variantPriceInput.val data['price']
+    variantPriceInput.attr 'readonly', 'readonly'
+
 $ ->
   planElement = $("#spreedly_variant_subscription_plan")
 
@@ -10,6 +16,9 @@ $ ->
     loadSubscriptionPlansForFeatureLevel modelId, featureLevel, 'variant', (data) ->
       planElement.html data
       planElement.addClass 'field'
-      $("#variant_subscription_plan_id").change ->
-        console.log "plan has changed to #{$(this).val()}!"
-      $("#variant_subscription_plan_id").select2()
+      subscriptionPlanSelect = $("#variant_subscription_plan_id")
+      updateVariantPrice subscriptionPlanSelect.val()
+      subscriptionPlanSelect.change ->
+        updateVariantPrice $(this).val()
+
+      subscriptionPlanSelect.select2()

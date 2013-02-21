@@ -5,3 +5,7 @@
 @loadSubscriptionPlansForFeatureLevel = (modelId, featureLevel, modelName, completionHandler) ->
   $.get "/spreedly_subscription_plan/index?model_id=#{modelId}&feature_level=#{featureLevel}&model_name=#{modelName}", (data) ->
     completionHandler data
+
+@loadSubscriptionPlanWithId = (subscriptionPlanId, completionHandler) ->
+  $.get "/spreedly_subscription_plan/show?plan_id=#{subscriptionPlanId}", (data) ->
+    completionHandler data

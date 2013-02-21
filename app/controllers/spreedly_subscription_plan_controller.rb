@@ -11,6 +11,12 @@ class SpreedlySubscriptionPlanController < ApplicationController
     }
   end
 
+  def show
+    plan = subscription_plan_with_id(params[:plan_id])
+    logger.debug plan
+    render json: plan
+  end
+
   def feature_levels
     render partial: 'subscription_plan/partials/spreedly_feature_levels', locals: {
       product: Spree::Product.find(params[:product_id]),
@@ -37,6 +43,10 @@ private
   end
 
   def subscription_plans
-    RSpreedly::SubscriptionPlan.find :all    
+    RSpreedly::SubscriptionPlan.find :all
+  end
+
+  def subscription_plan_with_id(plan_id)
+    RSpreedly::SubscriptionPlan.find plan_id
   end
 end
