@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SpreedlySubscriptionsController do
+describe SpreedlySubscriptionPlanController do
 
   describe "GET 'index'" do
     it "returns http success" do
