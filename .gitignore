@@ -12,3 +12,6 @@ nbproject
 pkg
 *.swp
 spec/dummy
+
+# Read the contribution guide for the reason for ignoring this file.
+config/spreedly_api_config.rb
