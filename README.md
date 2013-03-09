@@ -35,4 +35,4 @@ git update-index --assume-unchanged config/spreedly_api_config.rb
 ```
 in order for this configuration to be ignored on contribution.
 
-Copyright (c) 2013 Yovoslav Ivanov, released under the MIT License
+Copyright (c) 2013 Sparrow-Labs UG, released under the MIT License
