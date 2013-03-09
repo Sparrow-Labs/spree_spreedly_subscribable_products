@@ -27,7 +27,13 @@ You should be good to go. Subscribable products and variants through Spreedly ar
 Please fork the extension and issue a pull request after you've committed your changes.
 
 Configure your spreedly API credentials if you want to create a test application and run the integration tests. Configuration
-takes place in config/spreedly_api_config.rb.
+takes place in __config/spreedly_api_config.rb__. After you issue
+
+```bash
+rake test_app
+```
+a test dummy application will be created under __spec/dummy__, which will automatically use the credentials configuration.
+
 After configuring the API credentials please consider executing
 
 ```git
