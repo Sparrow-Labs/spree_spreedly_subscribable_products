@@ -13,6 +13,6 @@ task :test_app do
   ENV['LIB_NAME'] = 'spree_spreedly_subscribable_products'
   Rake::Task['common:test_app'].invoke
   `echo "\nrequire '../../config/pry_console_setup'" >> ./config/environments/development.rb`
-  `echo "\nrequire '../../config/spreedly_api_config'" >> ./config/environments/development.rb`
-  `echo "\nrequire '../../config/spreedly_api_config'" >> ./config/environments/test.rb`
+  `echo "require \\"\#\{File.dirname ENV['BUNDLE_GEMFILE']\}/config/spreedly_api_config\\"" >> ./config/environments/development.rb`
+  `echo "require \\"\#\{File.dirname ENV['BUNDLE_GEMFILE']\}/config/spreedly_api_config\\"" >> ./config/environments/test.rb`
 end
