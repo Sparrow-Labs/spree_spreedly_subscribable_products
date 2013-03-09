@@ -22,4 +22,15 @@ Run the migrations
 
 You should be good to go. Subscribable products and variants through Spreedly are configurable in the admin interface of your spree commerce store.
 
+## Contributing
+
+Configure your spreedly API credentials if you want to create a test application and run the integration tests. Configuration
+takes place in config/spreedly_api_config.rb.
+After configuring the API credentials please consider executing
+
+```git
+git update-index --assume-unchanged config/spreedly_api_config.rb
+```
+in order for this configuration to be ignored on contribution.
+
 Copyright (c) 2013 Yovoslav Ivanov, released under the MIT License
